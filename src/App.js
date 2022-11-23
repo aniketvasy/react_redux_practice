@@ -1,10 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
-import { incNum, decNum, editNum } from "./actions/index.js";
+import { incNum, decNum, editNum, multiNum } from "./actions/index.js";
 function App() {
   const changeTheNumber = useSelector((state) => state.changeTheNumber);
+  const multiPlyTheNumber = useSelector((state) => state.multiPlyTheNumber);
   const dispatch = useDispatch();
+
   return (
     <>
       <div className="main-div">
@@ -34,6 +35,19 @@ function App() {
             >
               <span>+</span>
             </a>
+            <a
+              className="quantity__plus"
+              title="Increment"
+              onClick={() => dispatch(multiNum(5))}
+            >
+              <span>+</span>
+            </a>
+            <input
+              name="quantity"
+              type="text"
+              className="quantity__input"
+              value={multiPlyTheNumber}
+            />
           </div>
         </div>
       </div>
